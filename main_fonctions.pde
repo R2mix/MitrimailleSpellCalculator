@@ -86,21 +86,25 @@ void mouseCouleur() {
 }
 
 void buttons() {
-  push();
-  fill(255);
-  textAlign(CENTER);
-  text("Calculate", 110, 50);
-  text("Save", 110, 110);
-  pop();
+  if (!HideHUD) {
+    push();
+    fill(255);
+    textAlign(CENTER);
+    text("Calculate", 110, 50);
+    text("Save", 110, 110);
+    text("Hide HUD", 880, 50);
+    pop();
 
-  push();
-  noFill();
-  strokeWeight(6);
-  stroke(255);
-  rectMode(CENTER);
-  rect( 110, 40, 200, 50, 6);
-  rect( 110, 100, 200, 50, 6);
-  pop();
+    push();
+    noFill();
+    strokeWeight(6);
+    stroke(255);
+    rectMode(CENTER);
+    rect( 110, 40, 200, 50, 6);
+    rect( 110, 100, 200, 50, 6);
+    rect ( 880, 40, 200, 50, 6);
+    pop();
+  }
 }
 
 void buttonsClick() {
@@ -116,6 +120,9 @@ void buttonsClick() {
   }
   if (abs (mouseX - 110) < 200 && abs (mouseY- 100) < 50) {
     saveFrame("savedFrame/spell.png");
+  }
+  if (abs (mouseX - 880) < 200 && abs (mouseY- 50) < 50) {
+    HideHUD = !HideHUD;
   }
 }
 
@@ -152,10 +159,11 @@ void calculator() {
     coutTotal = 16;
     break;
   }
-
+ if (!HideHUD) {
   text("coût : " + coutTotal, 20, 160);
   text("portée : " + porteeTotal + "m", 20, 200);
   text("effet : " + effetTotal + "d6", 20, 240);
   text("temps : " + tempsTotal + "d6", 20, 280);
   text("zone : " + zoneTotal +"m", 20, 320);
+ }
 }

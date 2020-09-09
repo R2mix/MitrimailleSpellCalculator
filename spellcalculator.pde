@@ -12,7 +12,7 @@ String[] coutFile = { "cout1.png", "cout2.png", "cout4.png", "cout16.png"};
 String[] couleurFile = { "rouge.png", "vert.png", "bleu.png", "blanc.png", "jaune.png", "pure.png", "multi.png"};
 String[] argumentFile  = { "zone.png", "effet.png", "temps.png", "portée.png"};
 
-boolean calculate;
+boolean calculate, HideHUD;
 float colorized = 255;
 
 
